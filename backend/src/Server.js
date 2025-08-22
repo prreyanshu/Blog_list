@@ -1,12 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors'); // <-- Add this line
+const cors = require('cors');
 const blogRoutes = require('./routes/blogList');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors()); // <-- Add this line
+app.use(cors({
+  origin: ['https://blog-list-fg26fpx49-prreyanshus-projects.vercel.app', 'http://localhost:5173']
+}));
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://test1:aawsdawfasdawdsaw@cluster0.ibne0.mongodb.net/blogdb', {
