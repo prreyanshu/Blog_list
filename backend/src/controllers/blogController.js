@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 // Define Blog schema and model
 const blogSchema = new mongoose.Schema({
     title: String,
-    content: String
+    content: String,
+    paragraph: String // <-- Add this line
 });
 const Blog = mongoose.model('Blog', blogSchema);
 
@@ -23,12 +24,22 @@ class BlogController {
 
   async createBlog(req, res) {
     try {
-      const { title, content } = req.body;
-      const newBlog = new Blog({ title, content });
+      const { title, content, paragraph } = req.body;
+      const newBlog = new Blog({ title, content, paragraph }); // <-- include paragraph
       await newBlog.save();
-      res.status(201).json(newBlog);
+      res.json(newBlog);
     } catch (error) {
       res.status(500).json({ error: 'Failed to create blog' });
+    }
+  }
+
+  async getBlogById(req, res) {
+    try {
+      const blog = await Blog.findById(req.params.id);
+      if (!blog) return res.status(404).json({ error: 'Blog not found' });
+      res.json(blog);
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to fetch blog' });
     }
   }
 }

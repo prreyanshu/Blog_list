@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 type Blog = {
   _id?: string;
   title: string;
   content: string;
+  paragraph?: string;
 };
 
 const API_URL = 'http://localhost:3000/blog-list';
@@ -20,19 +22,21 @@ const BlogList: React.FC = () => {
 
   return (
     <div className='masterpage'>
-        <div className="parenthead">
-          <div className="heading">
-            <h2>Blog's</h2>
-            <ul className='lister'>
-              {blogs.map(blog => (
-                <li className='lister2' key={blog._id}>
+      <div className="parenthead">
+        <div className="heading">
+          <h2>Blog's</h2>
+          <ul className='lister'>
+            {blogs.map(blog => (
+              <li className='lister2' key={blog._id}>
+                <Link to={`/blog/${blog._id}`}>
                   <strong>{blog.title}</strong>: {blog.content}
-                </li>
-              ))}
-            </ul>
-          </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-    </div>    
+      </div>
+    </div>
   );
 };
 

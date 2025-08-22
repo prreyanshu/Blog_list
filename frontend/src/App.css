@@ -29,3 +29,15 @@ body, html, #root {
   padding: 10px;
   border-bottom: 0.5px solid #ccc;
 }
+
+.lister li{
+  color: whitesmoke
+}
+
+.lister li a {
+  color: #c79d9d;   text-decoration: none; 
+}
+
+.lister li a:hover {
+  color: #ffb300; 
+}
