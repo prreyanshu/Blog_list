@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const API_URL = 'http://localhost:3000/blog-list';
+const API_URL = 'https://blog-list-04.onrender.com/blog-list';
 
 const AddBlog: React.FC = () => {
   const [title, setTitle] = useState('');
