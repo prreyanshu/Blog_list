@@ -1,3 +1,4 @@
+import './App.css';
 import BlogList from './components/BlogList';
 
 function App() {

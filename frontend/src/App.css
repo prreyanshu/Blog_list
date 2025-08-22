@@ -1,0 +1,24 @@
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.parenthead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  border: 2px dashed red; /* For debugging */
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading h2, .heading ul {
+  margin: 0;
+  padding: 0;
+}
