@@ -19,18 +19,20 @@ const BlogList: React.FC = () => {
   }, []);
 
   return (
-    <div className="parenthead">
-      <div className="heading">
-        <h2>Blog List</h2>
-        <ul>
-          {blogs.map(blog => (
-            <li key={blog._id}>
-              <strong>{blog.title}</strong>: {blog.content}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <div className='masterpage'>
+        <div className="parenthead">
+          <div className="heading">
+            <h2>Blog's</h2>
+            <ul className='lister'>
+              {blogs.map(blog => (
+                <li className='lister2' key={blog._id}>
+                  <strong>{blog.title}</strong>: {blog.content}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+    </div>    
   );
 };
 
