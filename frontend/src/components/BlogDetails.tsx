@@ -8,7 +8,8 @@ type Blog = {
   paragraph?: string;
 };
 
-const API_URL = 'https://blog-list-07.onrender.com/Blog-list';
+const API_URL = `${import.meta.env.VITE_API_URL}/Blog-list`;
+
 
 const BlogDetails: React.FC = () => {
   const { id } = useParams();
