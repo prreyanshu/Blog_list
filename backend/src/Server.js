@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: ['https://blog-list-fg26fpx49-prreyanshus-projects.vercel.app', 'http://localhost:5173']
+  origin: ['https://blog-list-fg26fpx49-prreyanshus-projects.vercel.app']
 }));
 
 // Connect to MongoDB
