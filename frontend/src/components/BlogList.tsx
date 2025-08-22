@@ -8,7 +8,7 @@ type Blog = {
   paragraph?: string;
 };
 
-const API_URL = 'http://localhost:3000/blog-list';
+const API_URL = 'https://blog-list-04.onrender.com/blog-list';
 
 const BlogList: React.FC = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
