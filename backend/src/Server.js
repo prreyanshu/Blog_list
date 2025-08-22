@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -7,11 +8,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: ['https://blog-list-fg26fpx49-prreyanshus-projects.vercel.app']
+  origin: [process.env.CORS_ORIGIN]
 }));
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://test1:aawsdawfasdawdsaw@cluster0.ibne0.mongodb.net/blogdb', {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {

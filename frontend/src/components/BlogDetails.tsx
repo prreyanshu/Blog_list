@@ -8,7 +8,7 @@ type Blog = {
   paragraph?: string;
 };
 
-const API_URL = 'https://blog-list-05.onrender.com/Blog-list';
+const API_URL = 'https://blog-list-07.onrender.com/Blog-list';
 
 const BlogDetails: React.FC = () => {
   const { id } = useParams();
