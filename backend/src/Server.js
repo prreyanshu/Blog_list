@@ -9,7 +9,9 @@ const PORT = process.env.PORT || 3000;
 
 console.log('CORS_ORIGIN in use:', process.env.CORS_ORIGIN);
 
-console.log('CORS_ORIGIN in use:', process.env.CORS_ORIGIN);
+app.use(cors({
+  origin: process.env.CORS_ORIGIN
+}));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
