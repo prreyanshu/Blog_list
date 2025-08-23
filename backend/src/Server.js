@@ -7,10 +7,9 @@ const blogRoutes = require('./routes/blogList');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors({
-  origin: 'http://localhost:5173',
-  credentials: true  // optional, if using cookies
-}));
+console.log('CORS_ORIGIN in use:', process.env.CORS_ORIGIN);
+
+console.log('CORS_ORIGIN in use:', process.env.CORS_ORIGIN);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
