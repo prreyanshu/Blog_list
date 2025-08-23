@@ -7,10 +7,19 @@ const blogRoutes = require('./routes/blogList');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-console.log('CORS_ORIGIN in use:', process.env.CORS_ORIGIN);
+const cors = require('cors');
+
+const allowedOrigins = ['https://musical-meringue-a3ebf0.netlify.app'];
 
 app.use(cors({
-  origin: process.env.CORS_ORIGIN
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true); // allow non-browser or curl requests
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  }
 }));
 
 // Connect to MongoDB
