@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-const API_URL = `${import.meta.env.VITE_API_URL}/Blog-list`;
+const API_URL = import.meta.env.VITE_API_URL + "/Blog-list";
+
 
 const AddBlog: React.FC = () => {
   const [title, setTitle] = useState('');
