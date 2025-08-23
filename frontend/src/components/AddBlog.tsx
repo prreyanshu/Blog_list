@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const API_URL = `${import.meta.env.VITE_API_URL}/Blog-list`
-
-
-
+const API_URL = `${import.meta.env.VITE_API_URL}/Blog-list`;
 
 const AddBlog: React.FC = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [paragraph, setParagraph] = useState('');
   const [error, setError] = useState('');
+  const [blogs, setBlogs] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then(res => res.json())
+      .then(data => setBlogs(data))
+      .catch(err => console.error('Fetch error:', err));
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,6 +71,14 @@ const AddBlog: React.FC = () => {
         <button type="submit" style={{ padding: '8px 16px' }}>Post Blog</button>
       </form>
       {error && <div style={{ color: 'red', marginTop: 10 }}>{error}</div>}
+      <div>
+        <h3>Existing Blogs</h3>
+        <ul>
+          {blogs.map(blog => (
+            <li key={blog.id}>{blog.title}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-// Define Blog schema and model
+
 const blogSchema = new mongoose.Schema({
     title: String,
     content: String,
-    paragraph: String // <-- Add this line
+    paragraph: String 
 });
 const Blog = mongoose.model('Blog', blogSchema);
 
